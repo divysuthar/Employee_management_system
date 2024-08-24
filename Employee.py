@@ -58,7 +58,7 @@ class PartTimeEmployee(Employee):
         self.__deduction = 0
         
     def calculateSalary(self):
-        return self.__monthlySalary + self.__bonus - self.__deductions
+        return (self.__hoursWorked * self.__hourlyRate) + self.__bonus - self.__deductions
     
     def calculateBonus(self):
         return self.__bonus
@@ -71,3 +71,28 @@ class PartTimeEmployee(Employee):
         
     def setBonus(self, bonus):
         self.__bonus = bonus
+        
+class PayrollSystem:
+    def __init__(self):
+        self.__employeeList = []
+        
+    def addEmployee(self, employee):
+        self.__employeeList.append(employee)
+    
+    def removeEmployee(self, id):
+        employee_to_remove = None
+        for employee in self.__employeeList:
+            if(employee.getid() == id):
+                employee_to_remove = employee
+                break
+        if(employee_to_remove != None):
+            self.__employeeList.remove(employee_to_remove)
+        
+    def displayEmployees(self):
+        for employee in self.__employeeList:
+            print(f"Employee: {employee.getName()}")
+            print(f"Salary: {employee.calculateSalary()}")
+            print(f"Bonus: {employee.calculateBonus()}")
+            print(f"Deductions: {employee.calculateDeductions()}")
+            print("---")
+            
