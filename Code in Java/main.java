@@ -38,13 +38,13 @@ class FullTimeEmployee extends Employee {
     public FullTimeEmployee(String name, int id, double monthlySalary) {
         super(name, id);
         this.monthlySalary = monthlySalary;
-        this.bonus = 0; // Initialize bonus to 0
-        this.deductions = 0; // Initialize deductions to 0
+        this.bonus = 0;
+        this.deductions = 0;
     }
 
     @Override
     public double calculateSalary() {
-        return monthlySalary + bonus - deductions; // Include bonus and deduct deductions in the salary calculation
+        return monthlySalary + bonus - deductions;
     }
 
     @Override
@@ -57,12 +57,10 @@ class FullTimeEmployee extends Employee {
         return deductions;
     }
 
-    // Setter for bonus
     public void setBonus(double bonus) {
         this.bonus = bonus;
     }
 
-    // Setter for deductions
     public void setDeductions(double deductions) {
         this.deductions = deductions;
     }
@@ -78,13 +76,13 @@ class PartTimeEmployee extends Employee {
         super(name, id);
         this.hoursWorked = hoursWorked;
         this.hourlyRate = hourlyRate;
-        this.bonus = 0; // Initialize bonus to 0
-        this.deductions = 0; // Initialize deductions to 0
+        this.bonus = 0;
+        this.deductions = 0;
     }
 
     @Override
     public double calculateSalary() {
-        return (hoursWorked * hourlyRate) + bonus - deductions; // Include bonus and deduct deductions in the salary calculation
+        return (hoursWorked * hourlyRate) + bonus - deductions;
     }
 
     @Override
@@ -97,12 +95,10 @@ class PartTimeEmployee extends Employee {
         return deductions;
     }
 
-    // Setter for bonus
     public void setBonus(double bonus) {
         this.bonus = bonus;
     }
 
-    // Setter for deductions
     public void setDeductions(double deductions) {
         this.deductions = deductions;
     }
@@ -169,7 +165,7 @@ public class main {
 
             try {
                 int choice = scanner.nextInt();
-                scanner.nextLine(); // Consume the newline character
+                scanner.nextLine();
 
                 switch (choice) {
                     case 1:
@@ -222,7 +218,7 @@ public class main {
                 }
             } catch (InputMismatchException e) {
                 System.out.println("Invalid input. Please enter a valid number.");
-                scanner.nextLine(); // Consume the newline character
+                scanner.nextLine();
             }
         }
     }
